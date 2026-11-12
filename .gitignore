@@ -13,3 +13,6 @@
 # Local tooling
 .claude/settings.local.json
 node_modules/
+
+# Raw files
+raw/

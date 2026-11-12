@@ -4,9 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Small Sharp Tools</title>
-<meta name="description" content="Mac apps, web tools and games by Brennan Stehling.">
+<meta name="description" content="Mac apps, web tools, games, LED builds and agent skills by Brennan Stehling.">
 <meta property="og:title" content="Small Sharp Tools">
-<meta property="og:description" content="Mac apps, web tools and games by Brennan Stehling.">
+<meta property="og:description" content="Mac apps, web tools, games, LED builds and agent skills by Brennan Stehling.">
 <meta property="og:url" content="https://www.smallsharptools.com/">
 <meta property="og:image" content="https://www.smallsharptools.com/images/parallax.jpg">
 <link rel="canonical" href="https://www.smallsharptools.com/">
@@ -86,6 +86,16 @@ section h2 {
 }
 .links { margin-top: auto; padding-top: 8px; display: flex; flex-wrap: wrap; gap: 6px 16px; font-weight: 600; font-size: 15px; }
 
+.skills { list-style: none; margin: 0; padding: 0; display: grid; gap: 0 32px;
+  grid-template-columns: repeat(auto-fill, minmax(min(420px, 100%), 1fr)); }
+.skills li { padding: 16px 0; border-bottom: 1px solid var(--line); display: flex; flex-direction: column; gap: 4px; }
+.skills h3 { margin: 0; font-size: 17px; }
+.skills p { margin: 0; color: var(--muted); font-size: 15px; }
+.skills code { font: 13px/1.4 ui-monospace, SFMono-Regular, Menlo, monospace; color: var(--text);
+  background: var(--tag-bg); padding: 2px 6px; border-radius: 6px; align-self: flex-start; margin-top: 4px;
+  overflow-wrap: anywhere; }
+.section-note { color: var(--muted); margin: -6px 0 18px; max-width: 60ch; }
+
 footer.site { padding: 48px 0 64px; color: var(--muted); font-size: 15px; }
 footer.site .wrap { border-top: 1px solid var(--line); padding-top: 24px; display: flex; flex-wrap: wrap; gap: 8px 24px; justify-content: space-between; }
 
@@ -105,11 +115,13 @@ footer.site .wrap { border-top: 1px solid var(--line); padding-top: 24px; displa
       Small Sharp Tools
     </div>
     <h1>Small tools that do one thing well.</h1>
-    <p class="lede">Mac apps, web tools and games by Brennan Stehling.</p>
+    <p class="lede">Mac apps, web tools, games, LED builds and agent skills by Brennan Stehling.</p>
     <nav class="sections" aria-label="Sections">
       <a href="#mac">Mac apps</a>
       <a href="#web">Web</a>
       <a href="#games">Games and System 1</a>
+      <a href="#leds">LED builds</a>
+      <a href="#skills">Agent skills</a>
     </nav>
   </div>
 </header>
@@ -256,6 +268,92 @@ footer.site .wrap { border-top: 1px solid var(--line); padding-top: 24px; displa
       </article>
 
     </div>
+  </div>
+</section>
+
+<section id="leds">
+  <div class="wrap">
+    <h2>LED builds</h2>
+    <div class="grid">
+
+      <article class="card">
+        <div class="shot"><img src="images/glowkitchen.jpg" alt="Workshop bench lit pink and purple by GlowKitchen strips, with four glowing acrylic ghost signs" loading="lazy"></div>
+        <div class="body">
+          <h3>GlowKitchen</h3>
+          <p>An ESP32-C3 controller for LED strips around the workshop. Six themes, an IR remote, and MQTT control for Home Assistant. It remembers its settings through a power cut, and in the evening it swells gently on the hour as a reminder of the time.</p>
+          <div class="links">
+            <a href="https://github.com/brennanMKE/GlowKitchen">GitHub</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="shot"><img src="images/glowpanel.jpg" alt="Glow Panel: six large theme buttons and a brightness slider" loading="lazy" style="object-position: top"></div>
+        <div class="body">
+          <h3>GlowPanel</h3>
+          <p>The control panel for GlowKitchen, running on the Raspberry Pi workstations in the workshop. Big theme buttons and a big brightness slider, usable by a child without instructions, plus effect presets and a custom effect builder. Also runs on the Mac.</p>
+          <div class="links">
+            <a href="https://github.com/brennanMKE/GlowPanel">GitHub</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="shot"><img src="images/glowlamp.jpg" alt="GlowLamp: a glowing blue dome on a wooden base, next to its ESP32-C3 board" loading="lazy"></div>
+        <div class="body">
+          <h3>GlowLamp</h3>
+          <p>A ring of eight LEDs under a glass dome that slowly blends between colors. WiFi is set up through a captive portal, and the firmware updates itself from GitHub releases.</p>
+          <div class="links">
+            <a href="https://github.com/brennanMKE/GlowLamp">GitHub</a>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="wrap">
+    <h2>Agent skills</h2>
+    <p class="section-note">Skills for Claude Code and other coding agents, the ones I use most while building everything above.</p>
+    <ul class="skills">
+      <li>
+        <h3><a href="https://github.com/brennanMKE/IssuesSkill">Issues</a></h3>
+        <p>A repo-local bug tracker: an issues/ folder of markdown tickets, with a plan, implement and review workflow.</p>
+        <code>npx skills add brennanMKE/IssuesSkill</code>
+      </li>
+      <li>
+        <h3><a href="https://github.com/brennanMKE/MacReleaseSkill">Mac Release</a></h3>
+        <p>Ship a Mac app outside the App Store: Developer ID signing, notarization, a DMG and Sparkle updates.</p>
+        <code>npx skills add brennanMKE/MacReleaseSkill</code>
+      </li>
+      <li>
+        <h3><a href="https://github.com/brennanMKE/MacSecuritySkill">Mac Security</a></h3>
+        <p>Build Mac apps and tools that work with TCC permissions, code signing, the App Sandbox, launchd and removable media.</p>
+        <code>npx skills add brennanMKE/MacSecuritySkill</code>
+      </li>
+      <li>
+        <h3><a href="https://github.com/brennanMKE/XcodeBuildSkill">Xcode Build</a></h3>
+        <p>Build and test with xcodebuild from an agent without ever touching signing certificates, and diagnose signing failures.</p>
+        <code>npx skills add brennanMKE/XcodeBuildSkill</code>
+      </li>
+      <li>
+        <h3><a href="https://github.com/brennanMKE/XcodeCleanupSkill">Xcode Cleanup</a></h3>
+        <p>Tidy a newly created Xcode project: minimal file headers and no leftover template metadata.</p>
+        <code>npx skills add brennanMKE/XcodeCleanupSkill</code>
+      </li>
+      <li>
+        <h3><a href="https://github.com/brennanMKE/SwiftGuidanceSkill">Swift Guidance</a></h3>
+        <p>Modern Swift: concurrency, logging, actor isolation, SwiftUI conventions and performance.</p>
+        <code>npx skills add brennanMKE/SwiftGuidanceSkill</code>
+      </li>
+      <li>
+        <h3><a href="https://github.com/brennanMKE/ESP32GuidanceSkill">ESP32 Guidance</a></h3>
+        <p>Proven ESP32 patterns from real projects, including the Glow builds: timing, WiFi, logging and hardware quirks.</p>
+        <code>npx skills add brennanMKE/ESP32GuidanceSkill</code>
+      </li>
+    </ul>
   </div>
 </section>
 
